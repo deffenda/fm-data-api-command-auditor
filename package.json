@@ -1,0 +1,73 @@
+{
+  "name": "fm-data-api-command-auditor",
+  "displayName": "FM Data API Command Auditor",
+  "description": "Runs command registration and smoke audits against the FileMaker Data API Tools extension.",
+  "version": "0.1.1",
+  "publisher": "your-org",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:fmCommandAuditor.runRegistrationAudit",
+    "onCommand:fmCommandAuditor.runSmokeAudit",
+    "onCommand:fmCommandAuditor.openLastReport"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fmCommandAuditor.runRegistrationAudit",
+        "title": "FM Command Auditor: Run Registration Audit",
+        "category": "FileMaker"
+      },
+      {
+        "command": "fmCommandAuditor.runSmokeAudit",
+        "title": "FM Command Auditor: Run Smoke Audit",
+        "category": "FileMaker"
+      },
+      {
+        "command": "fmCommandAuditor.openLastReport",
+        "title": "FM Command Auditor: Open Last Report",
+        "category": "FileMaker"
+      }
+    ],
+    "configuration": {
+      "title": "FM Command Auditor",
+      "properties": {
+        "fmCommandAuditor.targetExtensionId": {
+          "type": "string",
+          "default": "your-org.filemaker-data-api-tools",
+          "description": "Extension ID to audit."
+        },
+        "fmCommandAuditor.commandTimeoutMs": {
+          "type": "number",
+          "default": 8000,
+          "minimum": 1000,
+          "description": "Per-command execution timeout during smoke audit."
+        },
+        "fmCommandAuditor.skipCommands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Explicit command IDs to skip during smoke audit."
+        },
+        "fmCommandAuditor.commandArgs": {
+          "type": "object",
+          "default": {},
+          "description": "Optional command argument map. Keys are command IDs and values are argument arrays."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "echo \"No lint configured\"",
+    "build": "echo \"No build required\""
+  }
+}
