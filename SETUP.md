@@ -1,31 +1,41 @@
-# Setup (New Machine)
+# Setup (macOS + Windows)
 
 ## Prerequisites
 
 - Git
-- Node.js 20+ (`nvm` recommended)
+- Node.js 20+
 - npm
 
-## Quick Start
-
-1. Clone the repository.
-2. In the repo root, run:
+## macOS / Linux
 
 ```bash
 ./setup.sh
 ```
 
-3. If this repo has a root `package.json`, common commands are:
+## Windows (PowerShell)
+
+```powershell
+.\setup.ps1
+```
+
+## Windows (Command Prompt)
+
+```cmd
+setup.cmd
+```
+
+## Optional Dry Run
+
+```bash
+node setup.mjs --dry-run
+```
+
+## After Setup
+
+If root `package.json` exists, common commands are:
 
 ```bash
 npm run dev --if-present
 npm run build --if-present
 npm test --if-present
 ```
-
-If this repo uses subprojects, `./setup.sh` installs each known subproject dependency set.
-
-## Notes
-
-- `./setup.sh` uses `npm ci` when a lockfile is present; falls back to `npm install`.
-- If `.env.example` exists and `.env.local` does not, setup will create `.env.local` automatically.

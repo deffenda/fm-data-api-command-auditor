@@ -69,6 +69,6 @@
   "scripts": {
     "lint": "echo \"No lint configured\"",
     "build": "echo \"No build required\"",
-    "setup": "./setup.sh"
+    "setup": "node ./setup.mjs"
   }
 }
